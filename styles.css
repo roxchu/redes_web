@@ -8,15 +8,23 @@ body {
     margin: 0;
 }
 
+/* En tu archivo style.css */
+
 .carrusel-container {
     position: relative;
-    width: 600px; /* Ancho fijo del carrusel */
-    max-width: 90%; /* Responsivo para pantallas más pequeñas */
-    height: 300px; /* Alto fijo */
-    overflow: hidden; /* Oculta lo que se sale del contenedor */
+    width: 600px; /* O el ancho que desees para tu carrusel */
+    max-width: 90%; /* Esto es bueno para la responsividad */
+    height: 300px; /* O el alto que desees */
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* --- Las siguientes dos líneas son la clave para centrarlo --- */
+    margin: 0 auto; /* Centra horizontalmente, 0 para margen superior/inferior */
+    display: block; /* Asegúrate de que sea un elemento de bloque, aunque una div ya lo es por defecto */
+    /* ----------------------------------------------------------- */
 }
+
+/* El resto de tu CSS para .carrusel-slide, .carrusel-btn, .carrusel-dots, etc. */
 
 .carrusel-slide {
     position: absolute;
