@@ -5,12 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <header> 
        <h1> hola mundo cimo estan
     </h1>
    </header> 
+   <MAIN>
+       <div class="piltover_zaun2">
+           <img src="piltover.avif" alt="Imagen de piltover">
+       </div>
+
+       <div class="carrusel-container">
+        <div class="carrusel-slide">
+            <img src="https://via.placeholder.com/600x300/FF5733/FFFFFF?text=Imagen+1" alt="Imagen 1">
+        </div>
+        <div class="carrusel-slide">
+            <img src="https://via.placeholder.com/600x300/33FF57/FFFFFF?text=Imagen+2" alt="Imagen 2">
+        </div>
+        <div class="carrusel-slide">
+            <img src="https://via.placeholder.com/600x300/3357FF/FFFFFF?text=Imagen+3" alt="Imagen 3">
+        </div>
+
+        <button class="carrusel-btn prev" onclick="cambiarSlide(-1)">&#10094;</button>
+        <button class="carrusel-btn next" onclick="cambiarSlide(1)">&#10095;</button>
+
+        <div class="carrusel-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+   </MAIN>
 
 
 </body>
