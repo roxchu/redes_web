@@ -16,28 +16,54 @@
        <div class="piltover_zaun2">
            <img src="piltover.avif" alt="Imagen de piltover">
        </div>
-
-       <div class="carrusel-container">
+       <div id="carruselPersonajes" class="carrusel-container">
         <div class="carrusel-slide">
-            <img src="https://via.placeholder.com/600x300/FF5733/FFFFFF?text=Imagen+1" alt="Imagen 1">
+            <img src="https://via.placeholder.com/600x300/FF5733/FFFFFF?text=Personaje+1" alt="Personaje 1: El Héroe">
+            <button class="info-button" onclick="toggleInfo(this)">Más Info</button>
+            <div class="info-content">
+                <h3>Historia de Personaje 1: El Héroe</h3>
+                <p>Aquí desarrollarás en detalle la historia del Personaje 1: su origen, los eventos clave, sus motivaciones y cómo ha evolucionado. Es el pilar de la narrativa.</p>
+                <h4>Desarrollo del Personaje</h4>
+                <p>Analiza cómo el Personaje 1 ha crecido, superado desafíos y ha impactado a otros. Sus pruebas lo han forjado.</p>
+                <h4>Análisis del Personaje</h4>
+                <p>Profundiza en su personalidad, su simbolismo como arquetipo del héroe, y su rol en los temas centrales de la historia.</p>
+            </div>
         </div>
+    
         <div class="carrusel-slide">
-            <img src="https://via.placeholder.com/600x300/33FF57/FFFFFF?text=Imagen+2" alt="Imagen 2">
+            <img src="https://via.placeholder.com/600x300/33FF57/FFFFFF?text=Personaje+2" alt="Personaje 2: La Mentora">
+            <button class="info-button" onclick="toggleInfo(this)">Más Info</button>
+            <div class="info-content">
+                <h3>Historia de Personaje 2: La Mentora</h3>
+                <p>La historia de Personaje 2, una figura sabia y guía, su pasado y cómo sus experiencias la han convertido en un faro para el protagonista.</p>
+                <h4>Desarrollo del Personaje</h4>
+                <p>Explora cómo ha madurado, sus propios sacrificios y la forma en que su sabiduría se ha consolidado a través del tiempo.</p>
+                <h4>Análisis del Personaje</h4>
+                <p>Su papel como facilitadora del crecimiento del héroe, su simbolismo como sabiduría ancestral o figura materna.</p>
+            </div>
         </div>
+    
         <div class="carrusel-slide">
-            <img src="https://via.placeholder.com/600x300/3357FF/FFFFFF?text=Imagen+3" alt="Imagen 3">
+            <img src="https://via.placeholder.com/600x300/3357FF/FFFFFF?text=Personaje+3" alt="Personaje 3: El Antagonista">
+            <button class="info-button" onclick="toggleInfo(this)">Más Info</button>
+            <div class="info-content">
+                <h3>Historia de Personaje 3: El Antagonista</h3>
+                <p>La compleja historia de Personaje 3, sus motivaciones oscuras o trágicas, y los eventos que lo llevaron a oponerse al héroe.</p>
+                <h4>Desarrollo del Personaje</h4>
+                <p>Cómo su ideología o sus heridas lo han moldeado, su descenso o evolución hacia su rol actual.</p>
+                <h4>Análisis del Personaje</h4>
+                <p>Su función como catalizador del conflicto, su espejo oscuro del protagonista y los temas que su existencia representa.</p>
+            </div>
         </div>
-
-        <button class="carrusel-btn prev" onclick="cambiarSlide(-1)">&#10094;</button>
-        <button class="carrusel-btn next" onclick="cambiarSlide(1)">&#10095;</button>
-
-        <div class="carrusel-dots">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+    
+        <button class="carrusel-btn prev" onclick="cambiarSlidePersonajes(-1)">&#10094;</button>
+        <button class="carrusel-btn next" onclick="cambiarSlidePersonajes(1)">&#10095;</button>
+        <div class="carrusel-dots" id="dotsPersonajes">
+            <span class="dot" onclick="currentSlidePersonajes(0)"></span>
+            <span class="dot" onclick="currentSlidePersonajes(1)"></span>
+            <span class="dot" onclick="currentSlidePersonajes(2)"></span>
         </div>
     </div>
-
     <script src="script.js"></script> 
    </MAIN>
 
