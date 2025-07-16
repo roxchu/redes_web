@@ -21,6 +21,18 @@ function showSlidePersonajes(n) {
 
     slidesPersonajes[slideIndexPersonajes].classList.add('active');
     dotsPersonajes[slideIndexPersonajes].classList.add('active');
+
+    // **NUEVO: Actualiza el texto del botón "Más Info" cuando el slide cambia**
+    const infoButton = document.querySelector('.info-button');
+    if (infoButton) {
+        // Asegúrate de que el contenido de info del nuevo slide esté oculto por defecto
+        const currentInfoContent = slidesPersonajes[slideIndexPersonajes].querySelector('.info-content');
+        if (currentInfoContent && currentInfoContent.classList.contains('active')) {
+             infoButton.textContent = 'Menos Info';
+        } else {
+             infoButton.textContent = 'Más Info';
+        }
+    }
 }
 
 function cambiarSlidePersonajes(n) {
@@ -34,25 +46,28 @@ function currentSlidePersonajes(n) {
 showSlidePersonajes(slideIndexPersonajes); // Inicializa el carrusel
 
 
-// --- Nueva Función para alternar la visibilidad de la información ---
-function toggleInfo(buttonElement) {
-    const parentSlide = buttonElement.closest('.carrusel-slide');
-    if (!parentSlide) return;
+// --- Nueva Función para alternar la visibilidad de la información (MODIFICADA) ---
+// Ahora esta función NO recibe el botón como argumento, ya que es un botón global
+function toggleInfoForCurrentSlide() { // Renombrada para mayor claridad
+    const currentSlide = slidesPersonajes[slideIndexPersonajes];
+    if (!currentSlide) return;
 
-    const infoContent = parentSlide.querySelector('.info-content');
-    if (infoContent) {
+    const infoContent = currentSlide.querySelector('.info-content');
+    const infoButton = document.querySelector('.info-button'); // Obtén el botón global
+
+    if (infoContent && infoButton) {
         infoContent.classList.toggle('active');
         if (infoContent.classList.contains('active')) {
-            buttonElement.textContent = 'Menos Info';
+            infoButton.textContent = 'Menos Info';
         } else {
-            buttonElement.textContent = 'Más Info';
+            infoButton.textContent = 'Más Info';
         }
     }
 }
 
 // Opcional: Auto-reproducción para el carrusel de personajes
 /*
-setInterval(() => {
+setInterval(() => { 
     cambiarSlidePersonajes(1);
 }, 5000);
-*/ 
+*/

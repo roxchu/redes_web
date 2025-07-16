@@ -1,8 +1,9 @@
 body {
     font-family: sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Importante: Apila los elementos verticalmente */
+    justify-content: center; /* Centra el contenido del body verticalmente */
+    align-items: center; /* Centra el contenido del body horizontalmente */
     min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
@@ -18,13 +19,9 @@ body {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* --- Las siguientes dos líneas son la clave para centrarlo --- */
     margin: 0 auto; /* Centra horizontalmente, 0 para margen superior/inferior */
-    display: block; /* Asegúrate de que sea un elemento de bloque, aunque una div ya lo es por defecto */
-    /* ----------------------------------------------------------- */
+    /* display: block;  Esto ya es por defecto para un div */
 }
-
-/* El resto de tu CSS para .carrusel-slide, .carrusel-btn, .carrusel-dots, etc. */
 
 .carrusel-slide {
     position: absolute;
@@ -37,7 +34,10 @@ body {
 .carrusel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    /* ¡Mantén 'contain' si quieres evitar recortes, o 'cover' si prefieres cubrir y recortar! */
+    object-fit: contain; /* Para que la imagen completa se vea, con posibles barras negras */
+    /* object-fit: cover; /* Si prefieres que la imagen siempre cubra, recortando */
+    background-color: black; /* Si usas 'contain', esto rellena los espacios vacíos */
 }
 
 /* Clases para mostrar el slide activo */
@@ -46,7 +46,7 @@ body {
     opacity: 1;
 }
 
-/* Botones de navegación */
+/* Botones de navegación (Flechas) - SE QUEDAN SUPERPUESTOS */
 .carrusel-btn {
     cursor: pointer;
     position: absolute;
@@ -78,13 +78,45 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Indicadores (puntos) */
+/* ********* NUEVOS ESTILOS PARA EL CONTENEDOR INFERIOR ********* */
+.carrusel-inferior-controles {
+    display: flex; /* Para que el botón y los puntos se organicen */
+    flex-direction: column; /* Los apila uno debajo del otro */
+    align-items: center; /* Centra horizontalmente el botón y los puntos */
+    width: 600px; /* Asegura que el ancho de este contenedor coincida con el carrusel */
+    max-width: 90%;
+    margin-top: 20px; /* Espacio entre el carrusel y los controles inferiores */
+    margin-left: auto; /* Centra este contenedor */
+    margin-right: auto; /* Centra este contenedor */
+}
+
+/* Botón de información - AHORA FUERA DEL CARRUSEL */
+.info-button {
+    /* Ya no necesita position: absolute; ni top/bottom/left/transform */
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    /* z-index: 5;  Ya no es necesario si no se superpone a otros elementos */
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px; /* Espacio entre el botón y los puntos */
+    /* display: block;  Un botón ya es inline-block, pero esto asegura que tome su propio espacio */
+    /* margin-left: auto; margin-right: auto; -- Ya no es necesario si el padre es flex con align-items: center */
+}
+
+.info-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Indicadores (puntos) - AHORA FUERA DEL CARRUSEL */
 .carrusel-dots {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
+    /* Ya no necesita position: absolute; ni bottom/width */
+    text-align: center; /* Para centrar los puntos (si no usas flexbox en el padre) */
+    /* z-index: 10;  Ya no es necesario */
+    /* margin-top: 10px;  Ajusta si necesitas más espacio */
 }
 
 .dot {
@@ -101,28 +133,8 @@ body {
 .dot.active, .dot:hover {
     background-color: #717171;
 }
-/* Estilos para el botón de información */
-.info-button {
-    position: absolute;
-    bottom: 20px; /* Ajusta la posición vertical */
-    left: 50%;
-    transform: translateX(-50%); /* Centra horizontalmente */
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    z-index: 5; /* Asegura que esté por encima de la imagen */
-    transition: background-color 0.3s ease;
-}
 
-.info-button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-/* Estilos para el contenedor de información */
+/* Estilos para el contenedor de información (este puede quedarse como overlay si quieres) */
 .info-content {
     position: absolute;
     top: 0;
@@ -147,7 +159,8 @@ body {
 }
 
 /* Opcional: Ocultar la imagen cuando la información está activa para que no se vea por debajo */
-.info-content.active + img { /* Esto selecciona la imagen que sigue inmediatamente al info-content.active */
+/* Esta regla no necesitaría modificarse ya que info-content sigue siendo hijo de carrusel-slide */
+.info-content.active + img {
     opacity: 0;
 }
 
@@ -156,9 +169,9 @@ body {
     z-index: 10;
 }
 
-/* También revisa si modificaste el .carrusel-slide para añadir position: relative; */
-/* Si no lo tenías, agrégalo a tu regla existente de .carrusel-slide */
+/* .carrusel-slide ya tiene position: absolute, lo cual es correcto */
+/* Si tuvieras un problema con los elementos dentro de slide, podrías añadir position: relative aquí
 .carrusel-slide {
-    /* Tus estilos existentes para .carrusel-slide */
-    position: relative; /* ¡Asegúrate de que esta línea esté presente! */
+    position: relative;
 }
+*/
