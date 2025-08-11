@@ -71,3 +71,43 @@ setInterval(() => {
     cambiarSlidePersonajes(1);
 }, 5000);
 */
+
+// Función para obtener y mostrar el bookart desde PHP
+async function cargarBookart() {
+    const bookartGaleria = document.getElementById('bookart-galeria');
+    bookartGaleria.innerHTML = '<p class="loading-message">Cargando arte...</p>';
+
+    try {
+        const response = await fetch('obtener_bookart.php');
+        if (!response.ok) {
+            throw new Error('Error al obtener los datos de la base de datos.');
+        }
+        const bookart_data = await response.json();
+
+        bookartGaleria.innerHTML = ''; // Limpiar el mensaje de carga
+
+        if (bookart_data.length > 0) {
+            bookart_data.forEach(data => {
+                const bookartCard = document.createElement('div');
+                bookartCard.classList.add('bookart-card');
+                bookartCard.innerHTML = `
+                    <div class="bookart-info">
+                        <h3>${data.titulo}</h3>
+                        <p>${data.descripcion}</p>
+                        <a href="pdfs/${data.nombre_archivo}" target="_blank" class="pdf-btn">Ver PDF</a>
+                    </div>
+                `;
+                bookartGaleria.appendChild(bookartCard);
+            });
+        } else {
+            bookartGaleria.innerHTML = '<p>No se encontraron archivos de bookart.</p>';
+        }
+
+    } catch (error) {
+        console.error("Error al cargar el bookart: ", error);
+        bookartGaleria.innerHTML = '<p class="error-message">Error al cargar el bookart. Por favor, inténtalo de nuevo más tarde.</p>';
+    }
+}
+
+// Llama a la función al cargar la página para que el contenido aparezca automáticamente
+document.addEventListener('DOMContentLoaded', cargarBookart);
