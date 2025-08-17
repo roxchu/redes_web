@@ -266,3 +266,207 @@ main{
 .pdf-btn:hover {
     background-color: #e53900;
 }
+
+.foro-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.comentario-form {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.comentario-form h3 {
+    color: #c89b3c;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background: #0f1419;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #c89b3c;
+    box-shadow: 0 0 10px rgba(200, 155, 60, 0.3);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+#enviarBtn {
+    background: linear-gradient(135deg, #c89b3c, #d4af37);
+    color: #000;
+}
+
+#enviarBtn:hover {
+    background: linear-gradient(135deg, #d4af37, #c89b3c);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(200, 155, 60, 0.4);
+}
+
+#verComentariosBtn, #ocultarComentariosBtn {
+    background: linear-gradient(135deg, #0596aa, #0db7d4);
+    color: #fff;
+}
+
+#verComentariosBtn:hover, #ocultarComentariosBtn:hover {
+    background: linear-gradient(135deg, #0db7d4, #0596aa);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 183, 212, 0.4);
+}
+
+.comentarios-section {
+    background: linear-gradient(135deg, #16213e, #1a1a2e);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.comentarios-section h3 {
+    color: #c89b3c;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.comentario-item {
+    background: #0f1419;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #c89b3c;
+    transition: transform 0.2s ease;
+}
+
+.comentario-item:hover {
+    transform: translateX(5px);
+}
+
+.comentario-autor {
+    color: #c89b3c;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comentario-fecha {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.comentario-texto {
+    color: #fff;
+    line-height: 1.6;
+}
+
+.mensaje-estado {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.mensaje-estado.exito {
+    background: #4caf50;
+    color: white;
+}
+
+.mensaje-estado.error {
+    background: #f44336;
+    color: white;
+}
+
+.mensaje-estado.info {
+    background: #2196f3;
+    color: white;
+}
+
+/* Animaciones de carga */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .foro-container {
+        padding: 10px;
+    }
+    
+    .comentario-form,
+    .comentarios-section {
+        padding: 20px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form-buttons button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $servername = "localhost";
 $username = "root"; // Usuario por defecto de XAMPP
 $password = "";     // Contraseña por defecto de XAMPP
-$dbname = "arcane_db"; // Nombre de tu base de datos
+$dbname = "arcane_bd"; // Nombre de tu base de datos
 
 // 2. Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -194,10 +194,45 @@
         </section>
 
         <section id="Foro">
-            <h1> Foro </h1>
+            <h1>Foro</h1>
             <p>En este espacio los invito a que compartan sus pensamientos acerca de la página y la serie si es que así lo desean</p>
-            <p>//desarrollo del php</p>
+            
+            <!-- Formulario para enviar comentarios -->
+            <div class="foro-container">
+                <div class="comentario-form">
+                    <h3>Comparte tu opinión</h3>
+                    <form id="comentarioForm">
+                        <div class="form-group">
+                            <label for="nombreUsuario">Nombre:</label>
+                            <input type="text" id="nombreUsuario" name="nombre" required maxlength="100" 
+                                   placeholder="Tu nombre...">
+                        </div>
+                        <div class="form-group">
+                            <label for="comentarioTexto">Comentario:</label>
+                            <textarea id="comentarioTexto" name="comentario" required maxlength="1000" 
+                                      placeholder="Comparte tu opinión sobre Arcane, los personajes o la página..."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" id="enviarBtn">Enviar Comentario</button>
+                            <button type="button" id="verComentariosBtn">Ver Comentarios</button>
+                        </div>
+                    </form>
+                </div>
+        
+                <!-- Área para mostrar comentarios -->
+                <div class="comentarios-section" id="comentariosSection" style="display: none;">
+                    <h3>Comentarios de la comunidad</h3>
+                    <div id="comentariosList">
+                        <!-- Los comentarios se cargarán aquí -->
+                    </div>
+                    <button type="button" id="ocultarComentariosBtn">Ocultar Comentarios</button>
+                </div>
+        
+                <!-- Mensaje de estado -->
+                <div id="mensajeEstado" class="mensaje-estado"></div>
+            </div>
         </section>
+        
 
         <section id="Sobre mí">
 
