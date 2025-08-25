@@ -1,9 +1,13 @@
 body {
     font-family: sans-serif;
-   align-items: center; /* Centra el contenido del body horizontalmente */
+    background-image: url('imagenes/fondo.png'); /* Ruta de la imagen */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    background-color: #0b0c10; /* Color de respaldo si la imagen no carga */
     min-height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    color: #f8b625; /* Para que el texto sea legible sobre el fondo oscuro */
 }
 
 ul{
@@ -203,8 +207,13 @@ main{
 /* Sección Bookart */
 #Bookart {
     padding: 40px 20px;
-    background-color: #f0f0f0;
+    background-color: #e3a5c5;
     text-align: center;
+    display: flex; /* Habilita el modelo de caja flexible */
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: center; /* Centra horizontalmente el contenido */
+    text-align: center; /* Centra el texto */
+    padding: 40px 20px;
 }
 
 #Bookart h2 {
@@ -227,12 +236,18 @@ main{
 }
 
 .bookart-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    padding: 20px;
+    background-image: url(imagenes/arcano.jpg);
+    background-size: cover;
+    background-position: center; /* Centra la imagen */
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 500px; /* Ancho de la tarjeta */
+    height: 350px;
+    color: #0d2c40; /* Color de texto para que sea legible sobre el fondo */
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .bookart-card:hover {
@@ -255,7 +270,7 @@ main{
 .pdf-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff4500; /* Color llamativo */
+    background-color: #f8b625; /* Color llamativo */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -264,7 +279,7 @@ main{
 }
 
 .pdf-btn:hover {
-    background-color: #e53900;
+    background-color: #c99700;
 }
 
 .foro-container {
