@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,194 +8,224 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <header> 
-       <h1>Piltover y Zaun</h1>
-   </header> 
-   <MAIN>
-    <nav>
-        <ul>
-          <li><a href="#Ciudades">Ciudades</a></li>
-          <li><a href="#Personajes">Personajes</a></li>
-          <li><a href="#Bookart">Bookart</a></li>
-          <li><a href="#Foro">Foro</a></li>
-          <li><a href="#Sobre mí">Sobre mí</a></li>
-        </ul>
-      </nav>
+    <!-- Partículas de fondo animadas -->
+    <div class="particles" id="particles"></div>
 
-    <section id="Ciudades">
-               <div class="piltover_zaun2">
-           <img src="imagenes/piltover.avif" alt="Imagen de Piltover">
-       </div>
-    </section>
+    <header> 
+        <h1>Piltover y Zaun</h1>
+    </header> 
 
+    <main>
+        <nav>
+            <ul>
+                <li><a href="#Ciudades">Ciudades</a></li>
+                <li><a href="#Personajes">Personajes</a></li>
+                <li><a href="#Bookart">Bookart</a></li>
+                <li><a href="#Foro">Foro</a></li>
+                <li><a href="#Sobre mí">Sobre mí</a></li>
+            </ul>
+        </nav>
 
-    <section id="Personajes">
-       <div id="carruselPersonajes" class="carrusel-container">
-
-            <div class="carrusel-slide">
-                <img src="imagenes/vi.jpg" alt="Vi">
-                <div class="info-content">
-                    <h3>Historia de Vi</h3>
-                    <p>Vi, la enforcer de Piltover, creció en las calles de Zaun. Su historia está marcada por la traición, la pérdida de su hermana Jinx y su búsqueda de justicia. Es conocida por sus guantes hextech y su personalidad impetuosa.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su lucha interna entre su lealtad a Piltover y sus raíces en Zaun, así como en su complicada relación con Jinx. Aprende a confiar en los demás y a equilibrar la fuerza bruta con la estrategia.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Vi representa la fuerza y la determinación, pero también la vulnerabilidad y el conflicto emocional. Es un arquetipo de héroe renuente que busca redención.</p>
+        <section id="Ciudades">
+            <div class="section-title">
+                <h2>Ciudades</h2>
+            </div>
+            <div class="ciudades-container">
+                <div class="piltover_zaun2">
+                    <img src="imagenes/zaun.jpg" alt="Piltover y Zaun">
+                    <div class="image-overlay">
+                        <h3>Piltover y Zaun</h3>
+                        <p>Dos ciudades unidas por el destino, separadas por la clase</p>
+                    </div>
+                </div>
+                <div class="piltover_zaun2">
+                    <img src="imagenes/piltover.jpg" alt="Piltover y Zaun">
+                    <div class="image-overlay">
+                        <h3>Piltover y Zaun</h3>
+                        <p>Dos ciudades unidas por el destino, separadas por la clase</p>
+                    </div>
                 </div>
             </div>
-        
-            <div class="carrusel-slide">
-                <img src="imagenes/cait.jpg" alt="Caitlyn">
-                <div class="info-content">
-                    <h3>Historia de Caitlyn</h3>
-                    <p>Caitlyn, la Sheriff de Piltover, proviene de una familia rica pero eligió una vida de servicio a la ley. Su historia se entrelaza con la de Vi a medida que investigan crímenes en el submundo de Zaun.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Se desarrolla al enfrentar la corrupción y la moralidad gris de Zaun, lo que desafía su visión idealista de la justicia. Su relación con Vi es central en su crecimiento personal y profesional.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Caitlyn simboliza la justicia, la inteligencia y la aristocracia ilustrada. Su contraste con Vi explora las diferencias sociales y la búsqueda de la verdad.</p>
-                </div>
-            </div>
-        
-            <div class="carrusel-slide">
-                <img src="imagenes/jinx.jpg" alt="Jinx">
-                <div class="info-content">
-                    <h3>Historia de Jinx</h3>
-                    <p>Jinx es la hermana de Vi, una criminal psicótica e impredecible de Zaun. Su historia es una tragedia de abandono y trauma que la lleva por un camino de caos y destrucción.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo es una espiral descendente hacia la locura, impulsada por sus experiencias traumáticas y la influencia de Silco. Lucha con sus recuerdos y su identidad.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Jinx representa el caos, la anarquía y las consecuencias del trauma no resuelto. Es un personaje trágico que explora los límites de la cordura y el impacto de la sociedad.</p>
-                </div>
-            </div>
+        </section>
 
-            <div class="carrusel-slide">
-                <img src="imagenes/ekko.jpg" alt="Ekko">
-                <div class="info-content">
-                    <h3>Historia de Ekko</h3>
-                    <p>Ekko es un joven prodigio de Zaun, genio mecánico con la habilidad de manipular el tiempo. Lucha por proteger a su comunidad y construir un futuro mejor para Zaun.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su liderazgo emergente y su compromiso inquebrantable con su gente, a pesar de los desafíos y la violencia que lo rodean. Aprende a usar su intelecto para el bien común.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Ekko es un símbolo de esperanza e ingenio en el sombrío Zaun. Representa la capacidad de la juventud para innovar y luchar por un cambio positivo.</p>
+        <section id="Personajes">
+            <div class="section-title">
+                <h2>Personajes Icónicos</h2>
+            </div>
+            <div id="carruselPersonajes" class="carrusel-container">
+                <div class="carrusel-slide">
+                    <img src="imagenes/vi.jpg" alt="Vi">
+                    <div class="info-content">
+                        <h3>Historia de Vi</h3>
+                        <p>Vi, la enforcer de Piltover, creció en las calles de Zaun. Su historia está marcada por la traición, la pérdida de su hermana Jinx y su búsqueda de justicia. Es conocida por sus guantes hextech y su personalidad impetuosa.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su lucha interna entre su lealtad a Piltover y sus raíces en Zaun, así como en su complicada relación con Jinx. Aprende a confiar en los demás y a equilibrar la fuerza bruta con la estrategia.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Vi representa la fuerza y la determinación, pero también la vulnerabilidad y el conflicto emocional. Es un arquetipo de héroe renuente que busca redención.</p>
+                    </div>
                 </div>
+            
+                <div class="carrusel-slide">
+                    <img src="imagenes/cait.jpg" alt="Caitlyn">
+                    <div class="info-content">
+                        <h3>Historia de Caitlyn</h3>
+                        <p>Caitlyn, la Sheriff de Piltover, proviene de una familia rica pero eligió una vida de servicio a la ley. Su historia se entrelaza con la de Vi a medida que investigan crímenes en el submundo de Zaun.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Se desarrolla al enfrentar la corrupción y la moralidad gris de Zaun, lo que desafía su visión idealista de la justicia. Su relación con Vi es central en su crecimiento personal y profesional.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Caitlyn simboliza la justicia, la inteligencia y la aristocracia ilustrada. Su contraste con Vi explora las diferencias sociales y la búsqueda de la verdad.</p>
+                    </div>
+                </div>
+            
+                <div class="carrusel-slide">
+                    <img src="imagenes/jinx.jpg" alt="Jinx">
+                    <div class="info-content">
+                        <h3>Historia de Jinx</h3>
+                        <p>Jinx es la hermana de Vi, una criminal psicótica e impredecible de Zaun. Su historia es una tragedia de abandono y trauma que la lleva por un camino de caos y destrucción.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo es una espiral descendente hacia la locura, impulsada por sus experiencias traumáticas y la influencia de Silco. Lucha con sus recuerdos y su identidad.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Jinx representa el caos, la anarquía y las consecuencias del trauma no resuelto. Es un personaje trágico que explora los límites de la cordura y el impacto de la sociedad.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/ekko.jpg" alt="Ekko">
+                    <div class="info-content">
+                        <h3>Historia de Ekko</h3>
+                        <p>Ekko es un joven prodigio de Zaun, genio mecánico con la habilidad de manipular el tiempo. Lucha por proteger a su comunidad y construir un futuro mejor para Zaun.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su liderazgo emergente y su compromiso inquebrantable con su gente, a pesar de los desafíos y la violencia que lo rodean. Aprende a usar su intelecto para el bien común.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Ekko es un símbolo de esperanza e ingenio en el sombrío Zaun. Representa la capacidad de la juventud para innovar y luchar por un cambio positivo.</p>
+                    </div>
+                </div> 
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/jayce.jpg" alt="Jayce">
+                    <div class="info-content">
+                        <h3>Historia de Jayce</h3>
+                        <p>Jayce Talis es un brillante inventor de Piltover y el padre de la tecnología Hextech. Su historia es de ambición, descubrimiento y las complejas responsabilidades de la ciencia.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo muestra su paso de un idealista inocente a un político pragmático, enfrentando las consecuencias de sus inventos y las difíciles decisiones por el "bien mayor".</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Jayce representa el progreso y la innovación, pero también los dilemas éticos que conlleva el poder de la ciencia. Es un arquetipo del científico que debe lidiar con la política.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/viktor.jpg" alt="Viktor">
+                    <div class="info-content">
+                        <h3>Historia de Viktor</h3>
+                        <p>Viktor, un genio de Zaun y colega de Jayce, busca mejorar la humanidad a través de la tecnología, a menudo con métodos controvertidos. Su historia es de desesperación y la búsqueda de la perfección.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo es una trágica transformación, impulsada por la enfermedad y la desilusión, que lo lleva a abrazar la "Gloriosa Evolución" y a distanciarse de su humanidad original.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Viktor simboliza la ambición científica sin límites y la búsqueda desesperada de la trascendencia. Es un personaje complejo que desafía las nociones de lo que significa ser humano.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/mel.jpg" alt="Mel">
+                    <div class="info-content">
+                        <h3>Historia de Mel Medarda</h3>
+                        <p>Mel Medarda es una astuta consejera de Piltover, exiliada de su noble casa. Usa su intelecto y encanto para influir en la política y la sociedad de Piltover.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Se desarrolla al consolidar su poder en el consejo y al mostrar una faceta más vulnerable a través de su relación con Jayce. Su lucha por el poder se mezcla con un deseo de paz y estabilidad.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Mel representa la política, la ambición y el poder femenino. Su personaje explora las complejidades de la diplomacia y el costo personal de la influencia.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/heimer.jpg" alt="Heimerdinger">
+                    <div class="info-content">
+                        <h3>Historia de Heimerdinger</h3>
+                        <p>Heimerdinger es un venerable yupple y uno de los fundadores de Piltover, un genio inventor y decano de la Academia. Su historia es de sabiduría milenaria y reticencia al cambio.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su lucha por adaptarse a los rápidos avances tecnológicos y sociales, y su eventual exilio del consejo, lo que lo obliga a reevaluar sus principios.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Heimerdinger simboliza la tradición, la precaución y la sabiduría. Representa el conflicto entre la innovación desenfrenada y la necesidad de responsabilidad científica.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/silco.jpg" alt="Silco">
+                    <div class="info-content">
+                        <h3>Historia de Silco</h3>
+                        <p>Silco es el carismático y despiadado líder del submundo de Zaun y el padre adoptivo de Jinx. Su historia es de poder, supervivencia y un profundo resentimiento hacia Piltover.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su ascenso al poder en Zaun y su obsesión por la independencia de Zaun, lo que lo lleva a tomar decisiones moralmente ambiguas y a una relación compleja con Jinx.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Silco representa la ambición, la crueldad y la lucha por la autodeterminación. Es un antagonista complejo que, a pesar de sus métodos, busca el bienestar de su gente.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/ambessa.jpg" alt="Ambessa">
+                    <div class="info-content">
+                        <h3>Historia de Ambessa</h3>
+                        <p>Ambessa Medarda es la autoritaria madre de Mel Medarda, una figura poderosa y pragmática de Noxus que visita Piltover. Su historia es de estrategias políticas y lealtades familiares.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su intento de reafirmar su influencia sobre Mel y en la forma en que sus decisiones impactan la política de Piltover.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Ambessa simboliza el poder duro, la manipulación política y las complejidades de las relaciones familiares en el contexto de la diplomacia.</p>
+                    </div>
+                </div>
+
+                <div class="carrusel-slide">
+                    <img src="imagenes/vander.jpg" alt="Vander">
+                    <div class="info-content">
+                        <h3>Historia de Vander</h3>
+                        <p>Vander es el padre adoptivo de Vi y Jinx, y un respetado líder de las calles de Zaun que busca la paz. Su historia es de sacrificios, liderazgo y el peso de las decisiones.</p>
+                        <h4>Desarrollo del Personaje</h4>
+                        <p>Su desarrollo se centra en su lucha por proteger a sus hijos y a su comunidad, lo que lo lleva a tomar decisiones difíciles y a enfrentar su propio pasado violento.</p>
+                        <h4>Análisis del Personaje</h4>
+                        <p>Vander representa la paternidad, el liderazgo y el intento de romper el ciclo de la violencia. Es un arquetipo de figura paterna protectora.</p>
+                    </div>
+                </div>
+                
+                <button class="carrusel-btn prev" onclick="cambiarSlidePersonajes(-1)">&#10094;</button>
+                <button class="carrusel-btn next" onclick="cambiarSlidePersonajes(1)">&#10095;</button>
+                
             </div> 
-
-            <div class="carrusel-slide">
-                <img src="imagenes/jayce.jpg" alt="Jayce">
-                <div class="info-content">
-                    <h3>Historia de Jayce</h3>
-                    <p>Jayce Talis es un brillante inventor de Piltover y el padre de la tecnología Hextech. Su historia es de ambición, descubrimiento y las complejas responsabilidades de la ciencia.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo muestra su paso de un idealista inocente a un político pragmático, enfrentando las consecuencias de sus inventos y las difíciles decisiones por el "bien mayor".</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Jayce representa el progreso y la innovación, pero también los dilemas éticos que conlleva el poder de la ciencia. Es un arquetipo del científico que debe lidiar con la política.</p>
+            <div class="carrusel-inferior-controles">
+                <button class="info-button" onclick="toggleInfoForCurrentSlide()">Más Info</button>
+                <div class="carrusel-dots" id="dotsPersonajes">
+                    <span class="dot" onclick="currentSlidePersonajes(0)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(1)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(2)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(3)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(4)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(5)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(6)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(7)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(8)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(9)"></span>
+                    <span class="dot" onclick="currentSlidePersonajes(10)"></span>
                 </div>
             </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/viktor.jpg" alt="Viktor">
-                <div class="info-content">
-                    <h3>Historia de Viktor</h3>
-                    <p>Viktor, un genio de Zaun y colega de Jayce, busca mejorar la humanidad a través de la tecnología, a menudo con métodos controvertidos. Su historia es de desesperación y la búsqueda de la perfección.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo es una trágica transformación, impulsada por la enfermedad y la desilusión, que lo lleva a abrazar la "Gloriosa Evolución" y a distanciarse de su humanidad original.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Viktor simboliza la ambición científica sin límites y la búsqueda desesperada de la trascendencia. Es un personaje complejo que desafía las nociones de lo que significa ser humano.</p>
-                </div>
-            </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/mel.jpg" alt="Mel">
-                <div class="info-content">
-                    <h3>Historia de Mel Medarda</h3>
-                    <p>Mel Medarda es una astuta consejera de Piltover, exiliada de su noble casa. Usa su intelecto y encanto para influir en la política y la sociedad de Piltover.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Se desarrolla al consolidar su poder en el consejo y al mostrar una faceta más vulnerable a través de su relación con Jayce. Su lucha por el poder se mezcla con un deseo de paz y estabilidad.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Mel representa la política, la ambición y el poder femenino. Su personaje explora las complejidades de la diplomacia y el costo personal de la influencia.</p>
-                </div>
-            </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/heimer.jpg" alt="Heimerdinger">
-                <div class="info-content">
-                    <h3>Historia de Heimerdinger</h3>
-                    <p>Heimerdinger es un venerable yupple y uno de los fundadores de Piltover, un genio inventor y decano de la Academia. Su historia es de sabiduría milenaria y reticencia al cambio.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su lucha por adaptarse a los rápidos avances tecnológicos y sociales, y su eventual exilio del consejo, lo que lo obliga a reevaluar sus principios.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Heimerdinger simboliza la tradición, la precaución y la sabiduría. Representa el conflicto entre la innovación desenfrenada y la necesidad de responsabilidad científica.</p>
-                </div>
-            </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/silco.jpg" alt="Silco">
-                <div class="info-content">
-                    <h3>Historia de Silco</h3>
-                    <p>Silco es el carismático y despiadado líder del submundo de Zaun y el padre adoptivo de Jinx. Su historia es de poder, supervivencia y un profundo resentimiento hacia Piltover.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su ascenso al poder en Zaun y su obsesión por la independencia de Zaun, lo que lo lleva a tomar decisiones moralmente ambiguas y a una relación compleja con Jinx.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Silco representa la ambición, la crueldad y la lucha por la autodeterminación. Es un antagonista complejo que, a pesar de sus métodos, busca el bienestar de su gente.</p>
-                </div>
-            </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/ambessa.jpg" alt="Ambessa">
-                <div class="info-content">
-                    <h3>Historia de Ambessa</h3>
-                    <p>Ambessa Medarda es la autoritaria madre de Mel Medarda, una figura poderosa y pragmática de Noxus que visita Piltover. Su historia es de estrategias políticas y lealtades familiares.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su intento de reafirmar su influencia sobre Mel y en la forma en que sus decisiones impactan la política de Piltover.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Ambessa simboliza el poder duro, la manipulación política y las complejidades de las relaciones familiares en el contexto de la diplomacia.</p>
-                </div>
-            </div>
-
-            <div class="carrusel-slide">
-                <img src="imagenes/vander.jpg" alt="Vander">
-                <div class="info-content">
-                    <h3>Historia de Vander</h3>
-                    <p>Vander es el padre adoptivo de Vi y Jinx, y un respetado líder de las calles de Zaun que busca la paz. Su historia es de sacrificios, liderazgo y el peso de las decisiones.</p>
-                    <h4>Desarrollo del Personaje</h4>
-                    <p>Su desarrollo se centra en su lucha por proteger a sus hijos y a su comunidad, lo que lo lleva a tomar decisiones difíciles y a enfrentar su propio pasado violento.</p>
-                    <h4>Análisis del Personaje</h4>
-                    <p>Vander representa la paternidad, el liderazgo y el intento de romper el ciclo de la violencia. Es un arquetipo de figura paterna protectora.</p>
-                </div>
-            </div>
-            
-            <button class="carrusel-btn prev" onclick="cambiarSlidePersonajes(-1)">&#10094;</button>
-            <button class="carrusel-btn next" onclick="cambiarSlidePersonajes(1)">&#10095;</button>
-            
-            </div> <div class="carrusel-inferior-controles">
-            <button class="info-button" onclick="toggleInfoForCurrentSlide()">Más Info</button>
-            <div class="carrusel-dots" id="dotsPersonajes">
-                <span class="dot" onclick="currentSlidePersonajes(0)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(1)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(2)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(3)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(4)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(5)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(6)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(7)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(8)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(9)"></span>
-                <span class="dot" onclick="currentSlidePersonajes(10)"></span>
-            </div>
-        </div>
         </section>
 
         <section id="Bookart">
-            <h1>Bookart</h1>
-            <p>El bookart de Arcane es interesante porque recorre el diseño de los personajes y su desarrollo a lo largo de la serie, explorando sus variantes</p>
-            <p>A continuación podrá acceder al bookart</p>
+            <div class="section-title">
+                <h2>Bookart</h2>
+            </div>
+            <div class="bookart-description">
+                <p>El bookart de Arcane es interesante porque recorre el diseño de los personajes y su desarrollo a lo largo de la serie, explorando sus variantes</p>
+                <p>A continuación podrá acceder al bookart</p>
+            </div>
             <div id="bookart-galeria">
             </div>
         </section>
 
         <section id="Foro">
-            <h1>Foro</h1>
-            <p>En este espacio los invito a que compartan sus pensamientos acerca de la página y la serie si es que así lo desean</p>
+            <div class="section-title">
+                <h2>Foro</h2>
+            </div>
+            <div class="foro-description">
+                <p>En este espacio los invito a que compartan sus pensamientos acerca de la página y la serie si es que así lo desean</p>
+            </div>
             
             <!-- Formulario para enviar comentarios -->
             <div class="foro-container">
@@ -233,12 +263,57 @@
             </div>
         </section>
         
-
         <section id="Sobre mí">
-
+            <div class="section-title">
+                <h2>Sobre mí</h2>
+            </div>
+            <div class="sobre-mi-content">
+                <p>Creador apasionado del universo de Arcane</p>
+            </div>
         </section>
-        </MAIN>
+    </main>
 
+    <script>
+        // Crear partículas animadas de fondo
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
+            // Limpiar partículas existentes
+            particlesContainer.innerHTML = '';
+            
+            const particleCount = 15;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Inicializar partículas al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            // Regenerar partículas cada 10 segundos
+            setInterval(createParticles, 10000);
+        });
+    </script>
     <script src="script.js"></script> 
 </body>
 </html>
