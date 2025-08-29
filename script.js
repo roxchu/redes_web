@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     cargarBookart();
     initializeForum();
-    initializeCarousel(); // Nueva función para inicializar el carrusel
+    initializeCarousel(); // Función para inicializar el carrusel
 });
 
 // --- EFECTOS VISUALES MEJORADOS ---
@@ -68,7 +68,7 @@ let infoButton;
 function initializeCarousel() {
     slidesPersonajes = document.querySelectorAll('#carruselPersonajes .carrusel-slide');
     dotsPersonajes = document.querySelectorAll('#dotsPersonajes .dot');
-    infoButton = document.querySelector('.info-button');
+    infoButton = document.querySelector('#carruselPersonajes .info-button'); // Apuntamos al botón dentro del carrusel
 
     if (slidesPersonajes.length > 0) {
         showSlidePersonajes(slideIndexPersonajes);
@@ -81,6 +81,7 @@ function initializeCarousel() {
             dot.addEventListener('click', () => currentSlidePersonajes(index));
         });
         
+        // Ahora el botón de info sí tiene una función asociada
         infoButton.addEventListener('click', toggleInfoForCurrentSlide);
     }
 }
@@ -90,7 +91,14 @@ function showSlidePersonajes(n) {
     if (n < 0) { slideIndexPersonajes = slidesPersonajes.length - 1; }
 
     // Ocultar todos los slides y sus puntos
-    slidesPersonajes.forEach(slide => slide.classList.remove('active'));
+    slidesPersonajes.forEach(slide => {
+        slide.classList.remove('active');
+        const infoContent = slide.querySelector('.info-content');
+        if (infoContent) {
+            infoContent.classList.remove('active');
+        }
+    });
+    
     dotsPersonajes.forEach(dot => dot.classList.remove('active'));
 
     // Mostrar el slide y el punto actual
@@ -101,14 +109,6 @@ function showSlidePersonajes(n) {
         dotsPersonajes[slideIndexPersonajes].classList.add('active');
     }
 
-    // Ocultar info al cambiar de slide
-    slidesPersonajes.forEach(slide => {
-        const infoContent = slide.querySelector('.info-content');
-        if (infoContent) {
-            infoContent.classList.remove('active');
-        }
-    });
-    
     // Asegurar que el botón muestre "Más Info"
     if (infoButton) {
         infoButton.textContent = 'Más Info';
@@ -360,5 +360,50 @@ function initializeForum() {
             minute: '2-digit'
         };
         return date.toLocaleDateString('es-ES', opciones);
+    }
+}
+
+// --- NUEVA FUNCIONALIDAD PARA LA SECCIÓN CIUDADES ---
+document.addEventListener('DOMContentLoaded', function() {
+    // Asegurarse de que esta función se ejecute después de que el DOM esté completamente cargado
+    setupCiudadesInfo();
+});
+
+function setupCiudadesInfo() {
+    const infoCiudadesBtn = document.querySelector('.info-ciudades-btn');
+    const infoCiudadesContent = document.querySelector('.info-ciudades-content');
+
+    if (infoCiudadesBtn && infoCiudadesContent) {
+        infoCiudadesBtn.addEventListener('click', function() {
+            if (infoCiudadesContent.style.display === 'none' || infoCiudadesContent.style.display === '') {
+                infoCiudadesContent.style.display = 'block';
+                infoCiudadesBtn.textContent = 'Ocultar Información de Ciudades';
+            } else {
+                infoCiudadesContent.style.display = 'none';
+                infoCiudadesBtn.textContent = 'Ver Más Información de Ambas Ciudades';
+            }
+        });
+    }
+}
+
+// --- NUEVA FUNCIONALIDAD PARA LA SECCIÓN CIUDADES ---
+document.addEventListener('DOMContentLoaded', function() {
+    setupCiudadesInfo();
+});
+
+function setupCiudadesInfo() {
+    const infoCiudadesBtn = document.querySelector('.info-ciudades-btn');
+    const infoCiudadesContent = document.querySelector('.info-ciudades-content');
+
+    if (infoCiudadesBtn && infoCiudadesContent) {
+        infoCiudadesBtn.addEventListener('click', function() {
+            if (infoCiudadesContent.style.display === 'none' || infoCiudadesContent.style.display === '') {
+                infoCiudadesContent.style.display = 'block';
+                infoCiudadesBtn.textContent = 'Ocultar Información de Ciudades';
+            } else {
+                infoCiudadesContent.style.display = 'none';
+                infoCiudadesBtn.textContent = 'Ver Más Información de Ambas Ciudades';
+            }
+        });
     }
 }

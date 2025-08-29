@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcane Characters</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
 </head>
 <body>
     <!-- Partículas de fondo animadas -->
@@ -18,32 +20,35 @@
     <main>
         <nav>
             <ul>
-                <li><a href="#Ciudades">Ciudades</a></li>
-                <li><a href="#Personajes">Personajes</a></li>
-                <li><a href="#Bookart">Bookart</a></li>
-                <li><a href="#Foro">Foro</a></li>
-                <li><a href="#Sobre mí">Sobre mí</a></li>
+                <li><a href="#Ciudades"><i class="fas fa-city"></i> Ciudades</a></li>
+                <li><a href="#Personajes"><i class="fas fa-users"></i> Personajes</a></li>
+                <li><a href="#Bookart"><i class="fas fa-book-open"></i> Bookart</a></li>
+                <li><a href="#Foro"><i class="fas fa-comments"></i> Foro</a></li>
+                <li><a href="#Sobre mí"><i class="fas fa-user-circle"></i> Sobre mí</a></li>
             </ul>
         </nav>
-
         <section id="Ciudades">
-            <div class="section-title">
-                <h2>Ciudades</h2>
-            </div>
-            <div class="ciudades-container">
-                <div class="piltover_zaun2">
-                    <img src="imagenes/zaun.jpg" alt="Piltover y Zaun">
-                    <div class="image-overlay">
-                        <h3>Piltover y Zaun</h3>
-                        <p>Dos ciudades unidas por el destino, separadas por la clase</p>
-                    </div>
+            <h2>Ciudades</h2>
+            
+            <div class="ciudades-imagenes">
+                <div class="imagen-ciudad">
+                    <img src="imagenes/zaun.jpg" alt="Zaun" class="ciudad-img">
                 </div>
-                <div class="piltover_zaun2">
-                    <img src="imagenes/piltover.jpg" alt="Piltover y Zaun">
-                    <div class="image-overlay">
-                        <h3>Piltover y Zaun</h3>
-                        <p>Dos ciudades unidas por el destino, separadas por la clase</p>
-                    </div>
+                <div class="imagen-ciudad">
+                    <img src="imagenes/piltover.jpg" alt="Piltover" class="ciudad-img">
+                </div>
+            </div>
+        
+            <div class="ciudades-info-container">
+                <p>Piltover y Zaun son dos ciudades gemelas, unidas por la geografía pero divididas por la sociedad y la ideología. Piltover, la ciudad del progreso, se alza hacia el cielo con su vibrante cultura Hextech, mientras que Zaun, la ciudad subterránea, bulle con una energía cruda y peligrosos experimentos quimtech.</p>
+                <p>Ambas tienen una historia rica y compleja, donde la ambición, la innovación y la lucha por la supervivencia dan forma a sus habitantes.</p>
+                <button class="info-ciudades-btn">Ver Más Información de Ambas Ciudades</button>
+                <div class="info-ciudades-content">
+                    <h3>Piltover: La Ciudad del Progreso</h3>
+                    <p>Conocida como la Ciudad del Progreso, Piltover es un centro de cultura, comercio e innovación. Es famosa por sus grandes universidades y la proliferación de la tecnología Hextech, que combina magia y ciencia. La ciudad es un faro de oportunidad para inventores y artistas, aunque su riqueza y progreso a menudo se construyen sobre la explotación de los recursos y la mano de obra de su hermana subterránea, Zaun.</p>
+                    <h3>Zaun: La Ciudad Subterránea</h3>
+                    <p>Ubicada en los cañones debajo de Piltover, Zaun es una ciudad oscura y bulliciosa, un laberinto de industrias, laboratorios clandestinos y una vibrante subcultura. A pesar de su reputación de peligrosa, Zaun es un lugar de innovación audaz, donde la quimtecología florece y la libertad, aunque caótica, es muy valorada. Es el hogar de muchos que han sido oprimidos o ignorados por Piltover, forjando su propio destino en la penumbra.</p>
+                    <p>La relación entre Piltover y Zaun es tensa y compleja, una constante lucha de clases y poder que define la narrativa de Arcane.</p>
                 </div>
             </div>
         </section>

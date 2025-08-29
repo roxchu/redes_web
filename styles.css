@@ -67,67 +67,93 @@ header {
 }
 
 header h1 {
-    font-size: 3.5rem;
-    background: linear-gradient(45deg, #C89B3C, #F0E6D2, #C89B3C);
-    -webkit-background-clip: text; /* Para navegadores basados en WebKit */
-    background-clip: text; /* **Nueva línea** - Para compatibilidad estándar */
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 40px rgba(200, 155, 60, 0.5);
-    animation: glow 3s ease-in-out infinite alternate;
+    text-align: center;
+    padding: 50px 0;
+    color: transparent; /* Hace el texto invisible */
+    font-size: 0; /* Oculta el texto, pero no su espacio */
+    background-image: url('imagenes/fondo.jpg'); /* Ruta a tu imagen del título */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* Asegura que la imagen se vea completa */
+    height: 150px; /* Ajusta la altura según tu imagen */
+    margin: 0; /* Elimina márgenes predeterminados */
+    position: relative;
+    overflow: hidden;
+    /* Las propiedades de glow y overlay que tenías se pueden mantener o quitar */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para darle profundidad */
+}
+
+/* Si tenías un span dentro del h1 para el texto, ya no es necesario o se debe adaptar */
+header h1 span {
+    display: none; /* Asegúrate de que el span de texto no se muestre si existe */
 }
 
 @keyframes glow {
-    from { filter: drop-shadow(0 20px rgba(200, 155, 60, 0.5)); }
-    to { filter: drop-shadow(0 0 40px rgba(200, 155, 60, 0.8)); }
+    from {
+        filter: drop-shadow(0 20px rgba(200, 155, 60, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 40px rgba(200, 155, 60, 0.8));
+    }
 }
 
-/* Navegación mejorada */
+/* Contenedor de la barra de navegación */
 nav {
-    background: rgba(14, 10, 10, 0.95);
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
+    background: rgba(11, 12, 16, 0.9); /* Un fondo oscuro y semi-transparente de Zaun */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque para un aspecto de cristal esmerilado */
+    -webkit-backdrop-filter: blur(8px); /* Soporte para navegadores webkit */
+    border: 1px solid rgba(226, 89, 153, 0.3); /* Un borde sutil de color verde neón */
+    border-radius: 12px;
     margin: 2rem auto;
-    max-width: 800px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Hace el menú más responsive */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
     position: relative;
-    z-index: 99;
+    z-index: 100; /* Asegura que la navegación esté siempre en la parte superior */
 }
 
+/* Lista de enlaces */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; /* Utiliza Flexbox para una alineación perfecta */
+    justify-content: space-around; /* Distribuye los enlaces uniformemente */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
+/* Elementos de la lista */
 li {
-    float: none;
-}
-
-li a {
-    display: block;
-    color: #f8b625;
+    flex-grow: 1; /* Cada elemento ocupa un espacio igual */
     text-align: center;
-    padding: 1rem 1.5rem;
+    border-right: 1px solid rgba(57, 255, 20, 0.1); /* Separador sutil entre elementos */
+}
+
+li:last-child {
+    border-right: none; /* Elimina el separador del último elemento */
+}
+
+/* Estilo de los enlaces */
+li a {
+    display: flex; /* Permite alinear íconos y texto */
+    flex-direction: column; /* Coloca el texto debajo del ícono */
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Espacio entre el ícono y el texto */
+    color: #e3e2a5; /* Un color neutro que se ve bien sobre el fondo oscuro */
     text-decoration: none;
-    border-radius: 10px;
-    margin: 0.5rem;
-    background: linear-gradient(135deg, rgba(16, 16, 105, 0.8), rgba(26, 26, 62, 0.8));
+    padding: 1.2rem 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
+/* Efecto al pasar el cursor (hover) */
 li a:hover {
-    background: linear-gradient(135deg, #C89B3C, #F0E6D2);
-    color: #0a0e27;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(200, 155, 60, 0.4);
+    color: #0b0c10;
+    background: linear-gradient(135deg, #d4af37, #c98900); /* Un degradado de Piltover para el efecto hover */
+    box-shadow: 0 5px 15px rgba(200, 155, 60, 0.5);
+    transform: translateY(-2px); /* Un sutil efecto 3D */
 }
-
 /* Títulos de sección */
 .section-title {
     text-align: center;
@@ -145,51 +171,146 @@ li a:hover {
     text-shadow: 0 0 30px rgba(200, 155, 60, 0.5);
 }
 
-/* Sección Ciudades mejorada */
-.piltover_zaun2 {
-    position: relative;
-    max-width: 450px; /* Tamaño máximo para cada tarjeta */
-    margin: 0; /* Remueve el margen anterior para que el Flexbox lo gestione */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.piltover_zaun2:hover {
-    transform: scale(1.02);
-}
-
-.piltover_zaun2 img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.ciudades-container {
-    display: flex; /* Habilita Flexbox */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    gap: 3rem; /* Crea un espacio entre las dos tarjetas */
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
-}
-
-.image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-    padding: 2rem;
-    color: white;
+/* --- Sección Ciudades Mejorada (Solo cambios pedidos) --- */
+#Ciudades {
     text-align: center;
+    padding: 60px 20px;
+    background-color: #0b0c10;
+    color: #f0e6d2;
+    position: relative;
+    overflow: hidden;
 }
 
-.image-overlay h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: #C89B3C;
+/* Sección Ciudades */
+#Ciudades {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #0b0c10;
+    color: #f0e6d2;
+    position: relative;
+    overflow: hidden;
+}
+
+#Ciudades h2 {
+    font-size: 3.5em;
+    color: #c89b3c;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+}
+
+/* Contenedor de las dos imágenes */
+.ciudades-imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+/* Contenedor individual de cada imagen */
+.imagen-ciudad {
+    width: 450px;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #0b2553;
+    background-color: #4a1d52;
+}
+
+.imagen-ciudad:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    border-color: #c89b3c;
+}
+
+.ciudad-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.imagen-ciudad:hover .ciudad-img {
+    filter: brightness(1.1);
+}
+
+/* Contenedor de la información y el botón */
+.ciudades-info-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, rgba(16, 16, 105, 0.7), rgba(26, 26, 62, 0.7));
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #39ff14;
+}
+
+.ciudades-info-container p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #f0e6d2;
+}
+
+/* Botón de información */
+.info-ciudades-btn {
+    background-color: #c89b3c;
+    color: #0b0c10;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-ciudades-btn:hover {
+    background-color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(200, 155, 60, 0.4);
+}
+
+/* Contenido de información extendida (oculto por defecto) */
+.info-ciudades-content {
+    display: none;
+    text-align: left;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(57, 255, 20, 0.2);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.info-ciudades-content h3 {
+    color: #c89b3c;
+    font-size: 1.8em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.info-ciudades-content p {
+    font-size: 1em;
+    color: #e0e0e0;
+}
+
+/* Animación para mostrar el contenido */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Carrusel mejorado */
@@ -314,7 +435,8 @@ li a:hover {
     border: 2px solid transparent;
 }
 
-.dot.active, .dot:hover {
+.dot.active,
+.dot:hover {
     background-color: #C89B3C;
     border-color: #F0E6D2;
     transform: scale(1.2);
@@ -382,7 +504,9 @@ main {
 /* Sección Bookart mejorada */
 #Bookart {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(227, 165, 197, 0.9), rgba(227, 165, 197, 0.7));
+    background-image: url(imagenes/hexcore.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     backdrop-filter: blur(15px);
     border-radius: 30px;
     margin: 2rem auto;
@@ -419,14 +543,13 @@ main {
 }
 
 .bookart-card {
-    background-image: url(imagenes/arcano.jpg);
-    background-size: cover;
+    background-color: #e3e2a5;
     background-position: center;
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 350px;
+    height: 200px;
     color: #0d2c40;
     text-align: center;
     transition: all 0.3s ease;
@@ -447,7 +570,7 @@ main {
     z-index: 1;
 }
 
-.bookart-card > * {
+.bookart-card>* {
     position: relative;
     z-index: 2;
 }
@@ -602,12 +725,14 @@ main {
     box-shadow: 0 8px 20px rgba(200, 155, 60, 0.5);
 }
 
-#verComentariosBtn, #ocultarComentariosBtn {
+#verComentariosBtn,
+#ocultarComentariosBtn {
     background: linear-gradient(135deg, #0596aa, #0db7d4);
     color: #fff;
 }
 
-#verComentariosBtn:hover, #ocultarComentariosBtn:hover {
+#verComentariosBtn:hover,
+#ocultarComentariosBtn:hover {
     background: linear-gradient(135deg, #0db7d4, #0596aa);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(13, 183, 212, 0.5);
@@ -698,14 +823,16 @@ main {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 3px solid rgba(255,255,255,.3);
+    border: 3px solid rgba(255, 255, 255, .3);
     border-radius: 50%;
     border-top-color: #fff;
     animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-message {
@@ -761,66 +888,70 @@ main {
     header h1 {
         font-size: 2.5rem;
     }
-    
+
     .section-title h2 {
         font-size: 2rem;
     }
-    
+
     nav ul {
         flex-direction: column;
     }
-    
+
     .carrusel-container {
         width: 95%;
         height: 300px;
     }
-    
+
     .carrusel-inferior-controles {
         width: 95%;
     }
-    
+
     .foro-container {
         padding: 1rem;
     }
-    
+
     .comentario-form,
     .comentarios-section {
         padding: 1.5rem;
     }
-    
+
     .form-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .form-buttons button {
         width: 100%;
         max-width: 300px;
     }
-    
+
     .info-content {
         padding: 1rem;
         font-size: 0.9rem;
     }
-    
+
     .info-content h3 {
         font-size: 1.4rem;
     }
-    
+
     .info-content h4 {
         font-size: 1.1rem;
     }
-    
+
     #Bookart {
         padding: 2rem 1rem;
         margin: 1rem;
     }
-    
+
     .bookart-card {
         height: 300px;
         padding: 1.5rem;
     }
-   
+
+    .ciudades-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -829,23 +960,25 @@ main {
         height: 40px;
         font-size: 18px;
     }
-    
+
     .prev {
         left: 0.5rem;
     }
-    
+
     .next {
         right: 0.5rem;
     }
-    
+
     .info-button {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
-} 
+}
+
 @media (max-width: 768px) {
-        .ciudades-container {
-            flex-direction: column; /* Apila las imágenes en pantallas pequeñas */
-            align-items: center;
-        }
+    .ciudades-container {
+        flex-direction: column;
+        /* Apila las imágenes en pantallas pequeñas */
+        align-items: center;
     }
+}
