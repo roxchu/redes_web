@@ -59,30 +59,37 @@ function initializeScrollEffects() {
     });
 }
 
-// --- CONTROL DEL CARRUSEL DE PERSONAJES (FUNCIONALIDAD CORREGIDA) ---
+// --- CONTROL DEL CARRUSEL DE PERSONAJES ---
 let slideIndexPersonajes = 0;
 let slidesPersonajes;
 let dotsPersonajes;
 let infoButton;
+let prevBtn;
+let nextBtn;
 
 function initializeCarousel() {
     slidesPersonajes = document.querySelectorAll('#carruselPersonajes .carrusel-slide');
     dotsPersonajes = document.querySelectorAll('#dotsPersonajes .dot');
-    infoButton = document.querySelector('#carruselPersonajes .info-button'); // Apuntamos al botón dentro del carrusel
+    infoButton = document.querySelector('.info-button');
+    prevBtn = document.querySelector('.prev');
+    nextBtn = document.querySelector('.next');
 
     if (slidesPersonajes.length > 0) {
         showSlidePersonajes(slideIndexPersonajes);
-        
-        // Conexión de los botones del carrusel
-        document.querySelector('.prev').addEventListener('click', () => cambiarSlidePersonajes(-1));
-        document.querySelector('.next').addEventListener('click', () => cambiarSlidePersonajes(1));
-        
+
+        // Conectar botones prev/next solo si existen
+        if (prevBtn) prevBtn.addEventListener('click', () => cambiarSlidePersonajes(-1));
+        if (nextBtn) nextBtn.addEventListener('click', () => cambiarSlidePersonajes(1));
+
+        // Conectar dots
         dotsPersonajes.forEach((dot, index) => {
             dot.addEventListener('click', () => currentSlidePersonajes(index));
         });
-        
-        // Ahora el botón de info sí tiene una función asociada
-        infoButton.addEventListener('click', toggleInfoForCurrentSlide);
+
+        // Conectar el botón de info
+        if (infoButton) {
+            infoButton.addEventListener('click', toggleInfoForCurrentSlide);
+        }
     }
 }
 
@@ -90,29 +97,20 @@ function showSlidePersonajes(n) {
     if (n >= slidesPersonajes.length) { slideIndexPersonajes = 0; }
     if (n < 0) { slideIndexPersonajes = slidesPersonajes.length - 1; }
 
-    // Ocultar todos los slides y sus puntos
     slidesPersonajes.forEach(slide => {
         slide.classList.remove('active');
         const infoContent = slide.querySelector('.info-content');
-        if (infoContent) {
-            infoContent.classList.remove('active');
-        }
+        if (infoContent) infoContent.classList.remove('active');
     });
-    
+
     dotsPersonajes.forEach(dot => dot.classList.remove('active'));
 
-    // Mostrar el slide y el punto actual
-    if (slidesPersonajes[slideIndexPersonajes]) {
-        slidesPersonajes[slideIndexPersonajes].classList.add('active');
-    }
-    if (dotsPersonajes[slideIndexPersonajes]) {
-        dotsPersonajes[slideIndexPersonajes].classList.add('active');
-    }
+    // Mostrar slide y punto actual
+    slidesPersonajes[slideIndexPersonajes]?.classList.add('active');
+    dotsPersonajes[slideIndexPersonajes]?.classList.add('active');
 
-    // Asegurar que el botón muestre "Más Info"
-    if (infoButton) {
-        infoButton.textContent = 'Más Info';
-    }
+    // Restablecer texto del botón de info
+    if (infoButton) infoButton.textContent = 'Más Info';
 }
 
 function cambiarSlidePersonajes(n) {
@@ -126,7 +124,6 @@ function currentSlidePersonajes(n) {
 function toggleInfoForCurrentSlide() {
     const currentSlide = slidesPersonajes[slideIndexPersonajes];
     if (!currentSlide) return;
-
     const infoContent = currentSlide.querySelector('.info-content');
     if (infoContent) {
         infoContent.classList.toggle('active');
@@ -137,6 +134,9 @@ function toggleInfoForCurrentSlide() {
         }
     }
 }
+
+// Inicializa el carrusel cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', initializeCarousel);
 
 // --- SISTEMA DE BOOKART (FUNCIONALIDAD ORIGINAL MANTENIDA) ---
 async function cargarBookart() {
@@ -394,7 +394,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function setupCiudadesInfo() {
     const infoCiudadesBtn = document.querySelector('.info-ciudades-btn');
     const infoCiudadesContent = document.querySelector('.info-ciudades-content');
-
     if (infoCiudadesBtn && infoCiudadesContent) {
         infoCiudadesBtn.addEventListener('click', function() {
             if (infoCiudadesContent.style.display === 'none' || infoCiudadesContent.style.display === '') {
@@ -407,3 +406,4 @@ function setupCiudadesInfo() {
         });
     }
 }
+document.addEventListener('DOMContentLoaded', setupCiudadesInfo);
