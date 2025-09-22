@@ -3,8 +3,8 @@
 
 // Configuración de la base de datos
 $servername = "localhost";
-$username = "root"; // Cambiar por tu usuario de MySQL
-$password = ""; // Cambiar por tu contraseña de MySQL
+$username = "phpmyadmin"; // Usuario brindado por el colegio
+$password = "RedesInformaticas"; // Contraseña brindada por el colegio
 $dbname = "arcane_bd";
 
 try {

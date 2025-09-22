@@ -3,8 +3,8 @@ header('Content-Type: application/json');
 
 // 1. Configuración de la base de datos
 $servername = "localhost";
-$username = "root"; // Usuario por defecto de XAMPP
-$password = "";     // Contraseña por defecto de XAMPP
+$username = "phpmyadmin"; // Usuario brindado por la institución 
+$password = "RedesInformaticas";     // Contraseña brindada por la institucion
 $dbname = "arcane_bd"; // Nombre de tu base de datos
 
 // 2. Conectar a la base de datos
