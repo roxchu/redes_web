@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     cargarBookart();
     initializeForum();
-    initializeCarousel(); // Función para inicializar el carrusel
+    initializeCarousel();
 });
 
 // --- EFECTOS VISUALES MEJORADOS ---
@@ -21,13 +21,25 @@ function createParticles() {
     // Limpiar partículas anteriores
     particlesContainer.innerHTML = '';
     
-    const particleCount = 12;
+    // AUMENTAR cantidad de partículas para mejor cobertura
+    const particleCount = 50;
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
+        
+        // Distribuir partículas aleatoriamente en toda la pantalla
         particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 6 + 's';
-        particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        particle.style.top = Math.random() * 100 + 'vh'; // AÑADIDO: posición inicial aleatoria
+        
+        // Animaciones variadas
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+        
+        // Tamaños variados para más profundidad
+        const size = Math.random() * 3 + 1;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
         particlesContainer.appendChild(particle);
     }
 }
@@ -47,16 +59,8 @@ function initializeScrollEffects() {
         });
     });
 
-    // Efectos de parallax suave en scroll
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        const particles = document.getElementById('particles');
-        if (particles) {
-            particles.style.transform = `translateY(${rate}px)`;
-        }
-    });
+    // Efectos de parallax suave en scroll - ELIMINADO para evitar problemas
+    // Las partículas ahora son fixed y cubren toda la pantalla
 }
 
 // --- CONTROL DEL CARRUSEL DE PERSONAJES ---
@@ -77,16 +81,13 @@ function initializeCarousel() {
     if (slidesPersonajes.length > 0) {
         showSlidePersonajes(slideIndexPersonajes);
 
-        // Conectar botones prev/next solo si existen
         if (prevBtn) prevBtn.addEventListener('click', () => cambiarSlidePersonajes(-1));
         if (nextBtn) nextBtn.addEventListener('click', () => cambiarSlidePersonajes(1));
 
-        // Conectar dots
         dotsPersonajes.forEach((dot, index) => {
             dot.addEventListener('click', () => currentSlidePersonajes(index));
         });
 
-        // Conectar el botón de info
         if (infoButton) {
             infoButton.addEventListener('click', toggleInfoForCurrentSlide);
         }
@@ -105,11 +106,9 @@ function showSlidePersonajes(n) {
 
     dotsPersonajes.forEach(dot => dot.classList.remove('active'));
 
-    // Mostrar slide y punto actual
     slidesPersonajes[slideIndexPersonajes]?.classList.add('active');
     dotsPersonajes[slideIndexPersonajes]?.classList.add('active');
 
-    // Restablecer texto del botón de info
     if (infoButton) infoButton.textContent = 'Más Info';
 }
 
@@ -135,10 +134,7 @@ function toggleInfoForCurrentSlide() {
     }
 }
 
-// Inicializa el carrusel cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initializeCarousel);
-
-// --- SISTEMA DE BOOKART (FUNCIONALIDAD ORIGINAL MANTENIDA) ---
+// --- SISTEMA DE BOOKART ---
 async function cargarBookart() {
     const bookartGaleria = document.getElementById('bookart-galeria');
     if (!bookartGaleria) return;
@@ -177,7 +173,7 @@ async function cargarBookart() {
     }
 }
 
-// --- SISTEMA DE COMENTARIOS DEL FORO (FUNCIONALIDAD ORIGINAL MANTENIDA) ---
+// --- SISTEMA DE COMENTARIOS DEL FORO ---
 function initializeForum() {
     const comentarioForm = document.getElementById('comentarioForm');
     const verComentariosBtn = document.getElementById('verComentariosBtn');
@@ -186,7 +182,6 @@ function initializeForum() {
     const comentariosList = document.getElementById('comentariosList');
     const mensajeEstado = document.getElementById('mensajeEstado');
 
-    // Event listeners
     if (comentarioForm) {
         comentarioForm.addEventListener('submit', enviarComentario);
     }
@@ -199,7 +194,6 @@ function initializeForum() {
         ocultarComentariosBtn.addEventListener('click', ocultarComentarios);
     }
 
-    // Función para enviar comentario
     async function enviarComentario(e) {
         e.preventDefault();
         
@@ -214,7 +208,6 @@ function initializeForum() {
         const enviarBtn = document.getElementById('enviarBtn');
         const textoOriginal = enviarBtn.textContent;
         
-        // Mostrar estado de carga con animación mejorada
         enviarBtn.innerHTML = '<span class="loading"></span> Enviando...';
         enviarBtn.disabled = true;
 
@@ -236,7 +229,6 @@ function initializeForum() {
                 mostrarMensaje('¡Comentario enviado exitosamente!', 'exito');
                 comentarioForm.reset();
                 
-                // Si los comentarios están visibles, recargarlos
                 if (comentariosSection.style.display !== 'none') {
                     await cargarComentarios();
                 }
@@ -247,13 +239,11 @@ function initializeForum() {
             console.error('Error:', error);
             mostrarMensaje('Error de conexión. Intenta nuevamente.', 'error');
         } finally {
-            // Restaurar botón
             enviarBtn.textContent = textoOriginal;
             enviarBtn.disabled = false;
         }
     }
 
-    // Función para mostrar comentarios
     async function mostrarComentarios() {
         comentariosSection.style.display = 'block';
         verComentariosBtn.innerHTML = '<span class="loading"></span> Cargando...';
@@ -269,7 +259,6 @@ function initializeForum() {
         }
     }
 
-    // Función para cargar comentarios desde el servidor
     async function cargarComentarios() {
         try {
             const response = await fetch('comentarios.php', {
@@ -289,7 +278,6 @@ function initializeForum() {
         }
     }
 
-    // Función para mostrar la lista de comentarios
     function mostrarListaComentarios(comentarios) {
         if (comentarios.length === 0) {
             comentariosList.innerHTML = `
@@ -311,18 +299,15 @@ function initializeForum() {
         `).join('');
     }
 
-    // Función para ocultar comentarios
     function ocultarComentarios() {
         comentariosSection.style.display = 'none';
     }
 
-    // Función para mostrar mensajes de estado con animación
     function mostrarMensaje(mensaje, tipo) {
         mensajeEstado.textContent = mensaje;
         mensajeEstado.className = `mensaje-estado ${tipo}`;
         mensajeEstado.style.display = 'block';
         
-        // Animación de entrada
         mensajeEstado.style.opacity = '0';
         mensajeEstado.style.transform = 'translateY(-20px)';
         
@@ -332,7 +317,6 @@ function initializeForum() {
             mensajeEstado.style.transform = 'translateY(0)';
         }, 10);
 
-        // Ocultar mensaje después de 5 segundos con animación
         setTimeout(() => {
             mensajeEstado.style.opacity = '0';
             mensajeEstado.style.transform = 'translateY(-20px)';
@@ -342,14 +326,12 @@ function initializeForum() {
         }, 5000);
     }
 
-    // Función para escapar HTML y prevenir XSS
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
-    // Función para formatear fecha
     function formatearFecha(fecha) {
         const date = new Date(fecha);
         const opciones = {
@@ -363,12 +345,7 @@ function initializeForum() {
     }
 }
 
-// --- NUEVA FUNCIONALIDAD PARA LA SECCIÓN CIUDADES ---
-document.addEventListener('DOMContentLoaded', function() {
-    // Asegurarse de que esta función se ejecute después de que el DOM esté completamente cargado
-    setupCiudadesInfo();
-});
-
+// --- FUNCIONALIDAD PARA LA SECCIÓN CIUDADES ---
 function setupCiudadesInfo() {
     const infoCiudadesBtn = document.querySelector('.info-ciudades-btn');
     const infoCiudadesContent = document.querySelector('.info-ciudades-content');
@@ -386,24 +363,4 @@ function setupCiudadesInfo() {
     }
 }
 
-// --- NUEVA FUNCIONALIDAD PARA LA SECCIÓN CIUDADES ---
-document.addEventListener('DOMContentLoaded', function() {
-    setupCiudadesInfo();
-});
-
-function setupCiudadesInfo() {
-    const infoCiudadesBtn = document.querySelector('.info-ciudades-btn');
-    const infoCiudadesContent = document.querySelector('.info-ciudades-content');
-    if (infoCiudadesBtn && infoCiudadesContent) {
-        infoCiudadesBtn.addEventListener('click', function() {
-            if (infoCiudadesContent.style.display === 'none' || infoCiudadesContent.style.display === '') {
-                infoCiudadesContent.style.display = 'block';
-                infoCiudadesBtn.textContent = 'Ocultar Información de Ciudades';
-            } else {
-                infoCiudadesContent.style.display = 'none';
-                infoCiudadesBtn.textContent = 'Ver Más Información de Ambas Ciudades';
-            }
-        });
-    }
-}
 document.addEventListener('DOMContentLoaded', setupCiudadesInfo);
