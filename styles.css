@@ -871,6 +871,20 @@ main {
 }
 
 
+.imagen-sobre-mi-centrada {
+    display: flex;         /* Habilita el modelo de Flexbox */
+    justify-content: center; /* Centra los elementos hijos (la imagen) horizontalmente */
+    margin: 30px 0;        /* Mantiene el espacio vertical */
+}
+
+.sobre-mi-content {
+    /* Centra todo el contenido de texto dentro de este div */
+    text-align: center; 
+    margin-top: 20px;
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
